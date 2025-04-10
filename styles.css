@@ -86,7 +86,7 @@ nav {
 .section-header {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: center;
     opacity: 0;
     transform: translateY(30px);
@@ -94,8 +94,10 @@ nav {
 }
 
 .section-text {
-    font-size: 1.2rem;
-    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
     max-width: 800px;
     margin: 0 auto;
     opacity: 0;
@@ -166,45 +168,209 @@ nav {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    loading: lazy;
 }
 
 .gallery-item:hover .gallery-image {
     transform: scale(1.05);
 }
 
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .section {
+        padding: 100px 0 30px;
+    }
+    
+    .section-header {
+        font-size: 2.2rem;
+    }
+    
+    .nav-content {
+        padding: 0 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .section-header {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
     }
 
     .section-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        padding: 0 15px;
     }
-
-    .gallery-header {
-        font-size: 2rem;
+    
+    .nav-links {
+        gap: 20px;
     }
-
+    
+    .section {
+        min-height: auto;
+        padding: 90px 0 20px;
+    }
+    
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 12px;
+    }
+    
+    .gallery-item {
+        aspect-ratio: 1;
     }
 }
 
 @media (max-width: 480px) {
-    .nav-links {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 16px;
-        display: flex;
-        justify-content: space-around;
-        backdrop-filter: blur(10px);
+    .section-header {
+        font-size: 1.6rem;
     }
-
+    
+    .about-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .nav-item {
+        font-size: 0.9rem;
+    }
+    
+    nav {
+        padding: 15px 0;
+    }
+    
+    .nav-content h1 {
+        font-size: 1.3rem;
+    }
+    
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
+    
+    .nav-links {
+        padding: 12px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 350px) {
+    .section-header {
+        font-size: 1.4rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .skill-category h4 {
+        font-size: 1rem;
+    }
+    
+    .nav-item {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .section-header {
+        font-size: 2.8rem;
+    }
+    
+    .section-text {
+        font-size: 1.1rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1.7rem;
+    }
+}
+
+@media (hover: none) {
+    .gallery-item:hover {
+        transform: none;
+    }
+    
+    .gallery-item:hover .gallery-image {
+        transform: none;
+    }
+    
+    .gallery-item:active {
+        transform: scale(0.98);
+    }
+}
+
+@media print {
+    nav {
+        position: static;
+        background: none;
+        padding: 20px 0;
+    }
+    
+    .section {
+        min-height: auto;
+        page-break-inside: avoid;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Aboutセクションのスタイル */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 200px;
+}
+
+.skill-category h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 500;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.skill-category li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li:before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #1d9bf0;
 } 
