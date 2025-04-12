@@ -1,3 +1,4 @@
+/* グローバルスタイル */
 * {
     margin: 0;
     padding: 0;
@@ -12,12 +13,14 @@ body {
     line-height: 1.6;
 }
 
+/* コンテナスタイル */
 .container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
+/* ナビゲーションスタイル */
 nav {
     position: fixed;
     top: 0;
@@ -44,6 +47,7 @@ nav {
 }
 
 .nav-item {
+    font-size: 0.85rem;
     color: #1a1a1a;
     text-decoration: none;
     font-weight: 500;
@@ -66,6 +70,7 @@ nav {
     width: 100%;
 }
 
+/* セクションスタイル */
 .section {
     min-height: 100vh;
     padding: 120px 0 40px;
@@ -77,78 +82,97 @@ nav {
     transition: all 0.6s ease;
 }
 
-.section.active .section-header,
-.section.active .section-text {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .section-header {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 30px;
     text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
 }
 
 .section-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
+    padding: 0 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-text-gmail {
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #777777;
+}
+
+/* Aboutセクションのスタイル */
+.about-content {
     max-width: 800px;
     margin: 0 auto;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards 0.3s;
+    padding: 0 20px;
+    text-align: left;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.about-subtitle {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #8f8f8f;
+    font-weight: 600;
+    text-align: left;
 }
 
-#home .section-header,
-#home .section-text {
-    animation-play-state: running;
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 20px 0;
 }
 
-.section:not(#home) .section-header,
-.section:not(#home) .section-text {
-    animation: none;
-    opacity: 1;
-    transform: none;
+.skill-category {
+    flex: 1;
+    min-width: 200px;
 }
 
-.main-content {
-    margin-top: 100px;
-    padding: 40px 0;
+.skill-category h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 500;
 }
 
-.gallery-section {
-    margin-bottom: 80px;
+.skill-category ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.gallery-header {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-    text-align: center;
+.skill-category li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
 }
 
+.skill-category li:before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #1d9bf0;
+}
+
+/* ギャラリーセクションのスタイル */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 20px;
 }
 
 .gallery-item {
@@ -175,24 +199,7 @@ nav {
     transform: scale(1.05);
 }
 
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 16px;
-    }
-    
-    .section {
-        padding: 100px 0 30px;
-    }
-    
-    .section-header {
-        font-size: 2.2rem;
-    }
-    
-    .nav-content {
-        padding: 0 16px;
-    }
-}
-
+/* レスポンシブデザイン調整 */
 @media (max-width: 768px) {
     .section-header {
         font-size: 1.8rem;
@@ -322,55 +329,20 @@ nav {
     }
 }
 
-/* Aboutセクションのスタイル */
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: left;
+/* 準備中表示のスタイル */
+.preparation-message {
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px;
 }
 
-.about-subtitle {
+.preparation-message p {
     font-size: 1.5rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: 600;
-}
-
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin: 20px 0;
-}
-
-.skill-category {
-    flex: 1;
-    min-width: 200px;
-}
-
-.skill-category h4 {
-    font-size: 1.1rem;
+    color: #8f8f8f;
     margin-bottom: 10px;
-    color: #555;
-    font-weight: 500;
 }
 
-.skill-category ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.skill-category li {
-    padding: 5px 0;
-    position: relative;
-    padding-left: 20px;
-}
-
-.skill-category li:before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: #1d9bf0;
+.preparation-message .sub-text {
+    font-size: 1rem;
+    color: #a0a0a0;
 } 
